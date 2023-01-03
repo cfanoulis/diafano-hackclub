@@ -1,0 +1,49 @@
+.main {
+  padding: 4em;
+  padding-top: 2em;
+  padding-bottom: 0px;
+  background-color: var(--darkless);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+.title {
+  margin-bottom: 0.75em;
+  /* text-decoration: underline; */
+}
+
+.gradient {
+  background-image: radial-gradient(
+    ellipse farthest-corner at top left,
+    var(--orange),
+    var(--red)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-skip-ink: none;
+  text-decoration-color: var(--red);
+  text-underline-position: under;
+}
+
+.flex {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--smoke);
+}
+
+.footer {
+  padding-top: 2em;
+  padding-bottom: 1rem;
+  font-size: 10px;
+  background-color: var(--darkless);
+  color: var(--white);
+}

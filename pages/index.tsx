@@ -1,15 +1,48 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import { useCallback, useState } from "react";
+import InfiniteScroll from "react-infinite-scroller";
+import { ProjectCard } from "../components/ProjectCard";
 import type { BankOrg } from "../hackbank";
 import styles from "../styles/index.module.css";
 
 // const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({
-  d,
-  err,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home() {
+  const [projects, setProjects] = useState<BankOrg[]>([]);
+  const [isLoading, setLoading] = useState(false);
+  const [isFull, setFull] = useState(false);
+  const [pageNum, setPageNum] = useState(1);
+
+  const fetchItems = useCallback(async () => {
+    if (isLoading || isFull) {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const getOrgsReq = await fetch(
+        `https://bank.hackclub.com/api/v3/organizations?page=${pageNum}&per_page=10`
+      );
+
+      if (!getOrgsReq.ok) throw "Couldn't fetch orgs from da hack bank";
+
+      const d = ((await getOrgsReq.json()) as BankOrg[]).map(
+        ({ id, name, slug, logo }) => ({
+          id,
+          name,
+          slug,
+          logo,
+        })
+      );
+
+      setProjects([...projects, ...d]);
+      setPageNum(pageNum + 1);
+    } finally {
+      setLoading(false);
+    }
+  }, [projects, isLoading, pageNum, isFull]);
+
   return (
     <>
       <Head>
@@ -32,28 +65,22 @@ export default function Home({
           </a>
           :
         </h1>
-        <div className={styles.flex}>
-          {err ??
-            d.map((k: Record<string, string>) => (
-              <a
-                href={`https://bank.hackclub.com/${k.slug}`}
-                className={`card interactive ${styles.card}`}
-                key={k.id}
-              >
-                <Image
-                  alt={`${k.name}'s logo`}
-                  src={
-                    k.logo ??
-                    "https://bank.hackclub.com/brand/hcb-icon-icon-dark.svg"
-                  }
-                  style={{ marginRight: "8px" }}
-                  height={32}
-                  width={32}
-                ></Image>
-                <span>{k.name}</span>
-              </a>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={fetchItems}
+          hasMore={true}
+          loader={
+            <div className={styles.footer} key={0}>
+              putting the ack in Bank...
+            </div>
+          }
+        >
+          <div className={styles.flex}>
+            {projects.map((k: BankOrg) => (
+              <ProjectCard key={k.id} data={k} />
             ))}
-        </div>
+          </div>
+        </InfiniteScroll>
         <footer className={styles.footer}>
           char made this; and it&apos;s{" "}
           <a href="https://github.com/cfanoulis/diafano-hackclub">
@@ -64,23 +91,3 @@ export default function Home({
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const getOrgsReq = await fetch(
-    "https://bank.hackclub.com/api/v3/organizations"
-  );
-  if (!getOrgsReq.ok)
-    return { props: { err: "Couldn't fetch orgs from da hack bank" } };
-  const d = ((await getOrgsReq.json()) as BankOrg[]).map(
-    ({ id, name, slug, logo }) => ({
-      id,
-      name,
-      slug,
-      logo,
-    })
-  );
-  return {
-    props: { d }, // will be passed to the page component as props
-    revalidate: 2 * 60 * 60, // 2 hours
-  };
-};

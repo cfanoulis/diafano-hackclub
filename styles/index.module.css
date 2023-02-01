@@ -33,13 +33,6 @@
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--smoke);
-}
-
 .footer {
   text-align: end;
   padding-top: 2em;

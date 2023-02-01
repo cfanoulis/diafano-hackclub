@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image.js";
-import { BankOrg } from "../hackbank.js";
+import Image from "next/image";
+import type { BankOrg } from "../hackbank";
 import styles from "../styles/index.module.css";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -24,7 +24,13 @@ export default function Home({
       <main className={styles.main}>
         <h1 className={`${styles.title} title`}>
           These cool projects use{" "}
-          <span className={styles.gradient}>Hack Club Bank</span>:
+          <a
+            className={styles.gradient}
+            href="https://hackclub.com/bank?ref=diafano"
+          >
+            Hack Club Bank
+          </a>
+          :
         </h1>
         <div className={styles.flex}>
           {err ??

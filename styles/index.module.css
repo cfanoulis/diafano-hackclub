@@ -21,7 +21,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: underline;
-  text-decoration-style: wavy;
+  text-decoration-style: wavy !important;
   text-decoration-skip-ink: none;
   text-decoration-color: var(--red);
   text-underline-position: under;
@@ -41,6 +41,7 @@
 }
 
 .footer {
+  text-align: end;
   padding-top: 2em;
   padding-bottom: 1rem;
   font-size: 10px;

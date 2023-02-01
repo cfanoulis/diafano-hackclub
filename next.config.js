@@ -6,7 +6,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "bank.hackclub.com",
-        pathname: "/storage/blobs/redirect/**",
       },
     ],
   },

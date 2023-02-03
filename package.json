@@ -22,6 +22,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@types/react-infinite-scroller": "^1.2.3"
+    "@types/react-infinite-scroller": "^1.2.3",
+    "vercel": "^28.15.0"
   }
 }

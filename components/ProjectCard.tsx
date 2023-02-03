@@ -1,4 +1,5 @@
 // import Image from "next/image.js";
+import Image from "next/image.js";
 import type { BankOrg } from "../hackbank";
 import styles from "../styles/cards.module.css";
 export const ProjectCard = ({ data }: { data: BankOrg }) => {
@@ -10,17 +11,14 @@ export const ProjectCard = ({ data }: { data: BankOrg }) => {
         key={data.id}
       >
         {data.logo && (
-          <img
+          <Image
             alt={`${data.name}'s logo`}
             src={data.logo}
             style={{ marginRight: "8px" }}
             height={32}
-            // width={32}
-          ></img>
+          ></Image>
         )}
-        <span>
-          <strong>{data.name}</strong>
-        </span>
+        <span>{data.name}</span>
       </a>
     </>
   );

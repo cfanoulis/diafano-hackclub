@@ -4,4 +4,6 @@
   align-items: center;
   text-align: center;
   background-color: var(--smoke);
+  font-weight: 600;
+  min-height: 128px;
 }

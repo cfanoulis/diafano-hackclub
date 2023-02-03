@@ -22,7 +22,7 @@ export default function Home() {
 
     try {
       const getOrgsReq = await fetch(
-        `https://bank.hackclub.com/api/v3/organizations?page=${pageNum}&per_page=35`
+        `https://bank.hackclub.com/api/v3/organizations?page=${pageNum}&per_page=35&suppose_this_is_a_useragent=diafano_by_charalampos`
       );
 
       if (!getOrgsReq.ok) throw "Couldn't fetch orgs from da hack bank";

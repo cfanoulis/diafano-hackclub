@@ -22,7 +22,7 @@ export default function Home() {
 
     try {
       const getOrgsReq = await fetch(
-        `https://bank.hackclub.com/api/v3/organizations?page=${pageNum}&per_page=10`
+        `https://bank.hackclub.com/api/v3/organizations?page=${pageNum}&per_page=35`
       );
 
       if (!getOrgsReq.ok) throw "Couldn't fetch orgs from da hack bank";
@@ -35,6 +35,8 @@ export default function Home() {
           logo,
         })
       );
+
+      if (d.length < 1) setFull(true);
 
       setProjects([...projects, ...d]);
       setPageNum(pageNum + 1);
@@ -68,7 +70,7 @@ export default function Home() {
         <InfiniteScroll
           pageStart={0}
           loadMore={fetchItems}
-          hasMore={true}
+          hasMore={!isFull}
           loader={
             <div className={styles.footer} key={0}>
               putting the ack in Bank...

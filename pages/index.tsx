@@ -13,7 +13,7 @@ export default function Home({ initData }: InferGetStaticPropsType<typeof getSta
 	const [projects, setProjects] = useState<BankOrg[]>(initData);
 	const [isLoading, setLoading] = useState(false);
 	const [isFull, setFull] = useState(false);
-	const [pageNum, setPageNum] = useState(1);
+	const [pageNum, setPageNum] = useState(3);
 
 	const fetchItems = useCallback(async () => {
 		if (isLoading || isFull) {
@@ -51,7 +51,6 @@ export default function Home({ initData }: InferGetStaticPropsType<typeof getSta
 					:
 				</h1>
 				<InfiniteScroll
-					pageStart={2}
 					loadMore={fetchItems}
 					hasMore={!isFull}
 					loader={

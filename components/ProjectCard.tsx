@@ -7,7 +7,7 @@ export const ProjectCard = ({ data }: { data: BankOrg }) => {
     <>
       <a
         href={`https://bank.hackclub.com/${data.slug}`}
-        className={`card interactive ${styles.card}`}
+        className={`card interactive lead ${styles.card}`}
         key={data.id}
       >
         {data.logo && (

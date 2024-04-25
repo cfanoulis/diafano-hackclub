@@ -16,6 +16,7 @@ export const ProjectCard = ({ data }: { data: BankOrg }) => {
             src={data.logo}
             style={{ marginRight: "8px" }}
             height={32}
+            width={32}
           ></Image>
         )}
         <span>{data.name}</span>

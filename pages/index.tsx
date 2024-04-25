@@ -50,6 +50,7 @@ export default function Home({ initData }: InferGetStaticPropsType<typeof getSta
 					</a>
 					:
 				</h1>
+				<label htmlFor="showall" className='caption' style={{color: 'white', display: 'inline', height: '0,125rem'}}> <input id="showall" type="checkbox" style={{width: 'unset'}}/> show all projects? </label>
 				<InfiniteScroll
 					loadMore={fetchItems}
 					hasMore={!isFull}

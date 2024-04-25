@@ -10,12 +10,11 @@ export async function getBankData(page: number, page_size = 50, showAll = false)
 	if (!getOrgsReq.ok) throw "Couldn't fetch orgs from da hack bank";
 
 	const data = ((await getOrgsReq.json()) as BankOrg[])
-		.filter(e => showAll || (allowedProjectTypes.includes(e.category) && !e.demo_mode))
-		.map(({ id, name, category, demo_mode, slug, logo }) => ({
+		.filter(e => showAll || allowedProjectTypes.includes(e.category))
+		.map(({ id, name, category, slug, logo }) => ({
 		id,
 		name,
 		category,
-		demo_mode,
 		slug,
 		logo
 	}));

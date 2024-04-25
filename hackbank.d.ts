@@ -4,5 +4,4 @@ export interface BankOrg {
   category: string;
   slug: string;
   logo: string;
-  demo_mode: boolean;
 }

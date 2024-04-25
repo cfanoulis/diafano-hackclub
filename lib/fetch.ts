@@ -1,6 +1,6 @@
 import type { BankOrg } from '../hackbank';
 
-const allowedProjectTypes = ["hackathon", "hackclub", "nonprofit", "event", "high_school_hackathon", "robotics_team", "hack_club_hq", "ai"];
+const allowedProjectTypes = ['hackathon', 'hackclub', 'nonprofit', 'event', 'high_school_hackathon', 'robotics_team', 'hack_club_hq', 'ai'];
 
 export async function getBankData(page: number, page_size = 50, showAll = false) {
 	const getOrgsReq = await fetch(
@@ -10,14 +10,14 @@ export async function getBankData(page: number, page_size = 50, showAll = false)
 	if (!getOrgsReq.ok) throw "Couldn't fetch orgs from da hack bank";
 
 	const data = ((await getOrgsReq.json()) as BankOrg[])
-		.filter(e => showAll || allowedProjectTypes.includes(e.category))
+		.filter((e) => showAll || allowedProjectTypes.includes(e.category))
 		.map(({ id, name, category, slug, logo }) => ({
-		id,
-		name,
-		category,
-		slug,
-		logo
-	}));
+			id,
+			name,
+			category,
+			slug,
+			logo
+		}));
 
 	return data;
 }

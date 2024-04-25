@@ -1,43 +1,39 @@
 .main {
-  padding: 4em;
-  padding-top: 2em;
-  padding-bottom: 0px;
-  background-color: var(--darkless);
-  color: var(--white);
-  min-height: 100vh;
+	padding: 4em;
+	padding-top: 2em;
+	padding-bottom: 0px;
+	background-color: var(--darkless);
+	color: var(--white);
+	min-height: 100vh;
 }
 
 .title {
-  margin-bottom: 0.75em;
-  /* text-decoration: underline; */
+	margin-bottom: 0.75em;
+	/* text-decoration: underline; */
 }
 
 .gradient {
-  background-image: radial-gradient(
-    ellipse farthest-corner at top left,
-    var(--orange),
-    var(--red)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: underline;
-  text-decoration-style: wavy !important;
-  text-decoration-skip-ink: none;
-  text-decoration-color: var(--red);
-  text-underline-position: under;
+	background-image: radial-gradient(ellipse farthest-corner at top left, var(--orange), var(--red));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-decoration: underline;
+	text-decoration-style: wavy !important;
+	text-decoration-skip-ink: none;
+	text-decoration-color: var(--red);
+	text-underline-position: under;
 }
 
 .flex {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .footer {
-  text-align: end;
-  padding-top: 2em;
-  padding-bottom: 1rem;
-  font-size: 10px;
-  background-color: var(--darkless);
-  color: var(--white);
+	text-align: end;
+	padding-top: 2em;
+	padding-bottom: 1rem;
+	font-size: 10px;
+	background-color: var(--darkless);
+	color: var(--white);
 }

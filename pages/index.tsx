@@ -8,11 +8,10 @@ import InfiniteProjects from '../components/InfiniteProjects';
 import Layout from '../components/Layout';
 
 export default function Home({ initData }: InferGetStaticPropsType<typeof getStaticProps>) {
-
 	return (
 		<Layout>
 			<Link href="/">click here to view all projects :)</Link>
-			<InfiniteProjects initData={initData} showAll={false}/>
+			<InfiniteProjects initData={initData} showAll={false} />
 		</Layout>
 	);
 }

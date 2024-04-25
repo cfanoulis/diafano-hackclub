@@ -9,7 +9,7 @@ export default function Home({ initData }: InferGetStaticPropsType<typeof getSta
 	return (
 		<Layout>
 			<Link href="/">you&apos;re viewing all projects. click here to filter back to non-grant projects</Link>
-			<InfiniteProjects initData={initData} showAll={true}/>
+			<InfiniteProjects initData={initData} showAll={true} />
 		</Layout>
 	);
 }

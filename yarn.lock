@@ -221,15 +221,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/font@npm:14.2.3":
-  version: 14.2.3
-  resolution: "@next/font@npm:14.2.3"
-  peerDependencies:
-    next: "*"
-  checksum: 10c0/e436515f7830d82d772a0edbd630112c0a5937b6ebecb6995939493fd63c8874bc77b1357f3dfd527f454f44dcd85241aa250ff566c4c8546eac70903ed95364
-  languageName: node
-  linkType: hard
-
 "@next/swc-darwin-arm64@npm:14.2.3":
   version: 14.2.3
   resolution: "@next/swc-darwin-arm64@npm:14.2.3"
@@ -1649,7 +1640,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "diafano@workspace:."
   dependencies:
-    "@next/font": "npm:14.2.3"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@types/node": "npm:20.12.7"
     "@types/react": "npm:18.2.79"

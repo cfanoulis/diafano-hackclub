@@ -11,9 +11,11 @@ export async function getBankData(page: number, page_size = 50, showAll = false)
 
 	const data = ((await getOrgsReq.json()) as BankOrg[])
 		.filter(e => showAll || (allowedProjectTypes.includes(e.category) && !e.demo_mode))
-		.map(({ id, name, slug, logo }) => ({
+		.map(({ id, name, category, demo_mode, slug, logo }) => ({
 		id,
 		name,
+		category,
+		demo_mode,
 		slug,
 		logo
 	}));

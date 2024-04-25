@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "bank.hackclub.com",
+        hostname: "hcb.hackclub.com",
       },
     ],
   },

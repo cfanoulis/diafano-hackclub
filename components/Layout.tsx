@@ -16,7 +16,7 @@ export default function Layout({children}: PropsWithChildren<{}>) {
 			<h1 className={`${styles.title} title`}>
 				These cool projects use{' '}
 				<a className={styles.gradient} href="https://hackclub.com/hcb?ref=diafano">
-					Hack Club Bank
+					HCB
 				</a>
 				:
 			</h1>
